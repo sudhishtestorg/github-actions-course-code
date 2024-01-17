@@ -8,6 +8,6 @@ jobs:
       - name: echo a string
         run: echo "Hello World"
       - name: Multiline command
-         run: |
+        run: |
            node -v
            npm -v
