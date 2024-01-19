@@ -1,0 +1,17 @@
+#this workflow will do the following things.  
+#In this workflow, GitHub Actions checks out the pushed code, installs the bats testing framework, and runs a basic command to output the bats version: bats -v.
+#The workflow will run on the latest version of Ubuntu
+name: learn-github-actions
+run-name: ${{ github.actor }} is experimenting with GitHub Actions
+on: [push]
+jobs:
+  check-bats-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+      - run: npm install -g bats
+      - run: bats -v
+
